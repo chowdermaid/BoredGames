@@ -1,0 +1,38 @@
+.collectionItems {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: 40px 40px;
+  margin: 0 auto;
+}
+
+.collectionContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 100px;
+}
+
+.productCard {
+  width: 10rem;
+}
+
+#closebtn:hover {
+  opacity: 1;
+  background-color: white;
+  transition: max-width 1s ease-out 0.5s, opacity 2s ease-out 0.1s, color 0.2s;
+  color: #000000;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+#productImg {
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+#productName {
+  display: flex;
+  justify-content: center;
+}

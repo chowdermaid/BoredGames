@@ -1,0 +1,151 @@
+Week 1
+
+Group formed. Togther we chose to work on the ecommerce recommnder project.
+Discussed the languages to work in.
+We set up the Jira account and started writing the user stories.
+
+We also started working on the scaffold for the proposal. 
+
+Together we outlined the "eight specific and distinct objectives/requirements/functionalities (including, at least, two functional novelties with respect to existing related systems)".
+
+I wrote a simple API to test the libraries that we were planning to use. This included:
+ - Flask, flask-restx, and swagger documentation for managing the API
+ - MongoDB for the database
+ - Pandas for handling some of the larger datasets
+ - Pytest for running the tests
+
+Week 2
+
+We continued working on the proposal, on my part this included: 
+ - Added the Jira user stories to he proposal
+ - Organised the ideas into the eight main features
+ - Identified what else needed to be added and highlighted for later
+
+We continued discussing the theme that we would be using for our site.
+
+I set up the cloud based database using MongoDB Atlas and worked out how to connect to it with the API.
+
+Week 3
+
+As a group, we finally settled on a theme that would satisfy all of the requirements.
+I found an API that we could use to collect information on the various board games that we would be selling - 'Board Game Atlas'.
+
+As a group, the end of week 3 was dominated by finalising the proposal, on my part this included:
+ - Cleaned up structure
+ - Added table of contents
+ - Added referencing
+ - Added section to explain 'My Collection'
+
+ I added the user stories for 'My Collection'.
+
+ As a group we finalised our plan for collecting data for our website - settling on importing certain information about each board game contained in the 'Board Game Atlas' API.
+
+Week 4
+
+We discussed appropriate file structure for the assignment.
+We submitted our proposal.
+
+I updated the API that I had written to collect information from the 'Board Game Atlas' when adding a new board game to the database.
+I also abstracted out some of the code that I had already written to align with the agreed upon file structure. 
+I updated the requirements.txt file and the README.md in the repository to make it easier for others to run the backend of the project
+
+I wrote tests for all of the product functions and the product routes. 
+This included creating a couple of locally stored games to limit the number of calls made to Board Game Atlas.
+
+Updated the import product functions so that admin only has to input price, discount and quantity of a desired product when importing to the database.
+Added a check to see if a product of the same ID already exists in database to avoid duplicates.
+Added admin edit product functionality and tests.
+
+Week 5
+
+Made some small changes to admin product content. 
+ - added a last_accessed field to update when we update products
+ - automatically update "price_text" whenever we update "price_au" 
+ - update the admin functions to have their own namespace
+
+Wrote a function to clear the products database that can be called if necessary.
+Wrote a function to populate the database with 100 games to start with.
+These functions are both useful for resetting the db when we make changes to the structure.
+
+Wrote the starter functions for my_collection
+ - Adding a product to my_collection
+ - Removing a product from my_collection
+ - Retrieving all products in my_collection
+ - Updating my_collection if a product is removed from the database
+
+Started writing functions to manage a user's cart
+
+Week 6
+Completed the functions for managing a cart (backend code and tests)
+ - Add a product to cart
+ - Remove a product from cart
+ - View all products in a cart
+
+Added the functionality to add a coupon (backend code and tests)
+ - Admin can add, remove or override a coupon
+ - User can apply a coupon to a cart and if valid, the coupon will update the total cost of the cart
+
+Added the functionality to complete a transaction (backend code and tests)
+ - User can make an API call to confirm a transaction. 
+    - This takes in credit card details and user details and cart information
+    - Updates all of the relevant collections in the database with the new transaction
+    - Clears the user's cart once the transaction has been completed
+
+Week 7
+Small updates to the coupon application to allow us to report the value of the coupon that has been applied.
+
+Wrote the functions to allow the admins and users to view all past orders, specific orders and the admin to update the order status.
+Sorted the past orders to show most recent first.
+
+Started working on the recommender system. 
+Created a very simple recommender that recommends games based on their popularity in the site.
+Created a slightly more complex recommender that recommends the top 5 most popular games of the top 10 most similar games to a particular game.
+
+Week 8
+Integrated recommender changes.
+Wrote the content based recommender to find the 5 most similar games to a given game 
+    - to be displayed on a single shop page under the header "Related Products You May Like"
+
+Integrated the recommender into the system and created an endpoint to be connected to by the frontend.
+
+Had the week 8 demo - demonstrated all fully functioning features
+
+Started working on the collaborative recommender to make individualised recommendations to each user.
+
+Week 9
+Continued working on the collaborative recommender.
+Worked with Darwin on the signup quiz to provide us with some initial information about new users.
+Created a combined recommender that recommends games to a user based on:
+ - their signup quiz, games in their collections and similar user's preferences
+Added an endpoint for the signup quiz and for personalised recommendations
+
+Added functions to return the most popular mechanics and categories to display at the frontend in the user browsing
+Added functions to return personalised mechanics and categories based on:
+ - an individual user's collections 
+ - supplemented with overall popular mechanics and categories
+
+Created all of the endpoints for the admin analytics page. This included:
+ - number of users - single number
+ - overall number of sales - single number
+ - total value of all sales - single string
+ - average sale value - single string
+ -  three pairs of arrays with which to construct bar graphs
+    - "top_games_collection_graph"
+    - "top_games_cart_graph" 
+    - "top_games_bought_graph" -
+ - two pairs of arrays to construct line graphs with
+    - "daily_sales_graph"
+    - "daily_sales_value_graph"
+
+Created an endpoint to return all out of stock products.
+
+Week 10
+Final bug fixes on the backend.
+
+Had a couple of meetings to prepare for the demo, who would say what to make sure that all of the system functionality was demonstrated.
+had the final demo.
+
+Final code cleanup - add missing documentation, removed unused imports, moved test files into a folder
+
+Worked on the report.
+Submitted everything.

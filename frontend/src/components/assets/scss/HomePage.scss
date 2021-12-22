@@ -1,0 +1,14 @@
+.popularProductCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+#popularProductImg {
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+}

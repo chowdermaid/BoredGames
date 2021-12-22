@@ -1,0 +1,80 @@
+Week 1 :
+- Group formed, wrote some user stories and acceptance criterias. 
+- Made some progress on the proposal document and helped come up with a theme. 
+- In Jira, I wrote the user stories for order process, email. 
+
+Week 2 :
+- Wrote the background for the proposal, and finished off the admin products and recommender storyboards.  
+- Wrote some parts of the system architecture.
+- Broke down frontend/backend child tasks for most of the user stories, and wrote acceptance criterias. 
+- Compiled a word doc relevant to our recommender system (the idea was eventually shot down :c) 
+
+Week 3 :
+- Helped finalize the report by updating the background section of the proposal and some of the user storyboards in figma
+
+Week 4 :
+BACKEND
+- Started working on tickets on jira for account, started on register, login and logout functions
+- Added additional cases for register, login, logout. 
+- Completed functions for register, login and logout. 
+- Added another function account_details, it gets the username, email, and if user is an admin.
+
+FRONTEND
+- Started up basic framework for frontend
+- Created api's that use register, login and logout from backend
+- Successfully ported register, login, logout functions
+- Successfully ported account details
+- Now has admin portal appear if user is admin
+
+Week 5:
+FRONTEND
+- Ported over api calls for admin
+- Fixed issues causing backend not receiving frontend calls
+- Refactored some code so it was using functional components
+- Ported over api calls for my_collection
+- Populated my collection page
+- Made it so products on shop front had a button that called the product over to my collections
+- Can delete product from my collections
+- Created dropdown menu for user browsing
+- Started working on my cart
+
+Week 6: 
+FRONTEND
+- Refactored our shop base and cart base to use global contexts so they can be used across files 
+and data is now stored not locally
+- Implemented user browsing on the frontend; can now search, filter by mechanics, categories, age,
+playtime, learning curve, strategic depth
+- Sorting feature now works with filtered products
+- Implemented cart features, now has a cart dropdown on the navigation bar
+- Can fill out a form, review your cart, and checkout
+- Implemented user transactions, can apply discount, finalize transaction based on information filled on forms
+- Did some cart css 
+- Updated api calls on frontend
+- Fixed up functions that weren't returning errors properly, now website should be a little more responsive
+
+BACKEND
+- Implemented user browsing features, and added tests (runs in O(n^3) though LMAO)
+
+Week 7: 
+FRONTEND
+- Implemented user orders, users can view orders all orders in account page
+- Implemented admin orders, admins can view all user orders and set shipping status for each individual order
+
+Week 8:
+FRONTEND
+- Refactored website to use popups instead of alerts
+- Added user and admin order filter buttons
+- Added most popular items on homepage 
+- Added related items to product page
+
+Week 9: 
+FRONTEND
+- Refactored user browsing, removed lots of unnecessary fetches, and tag appears when you click a tag which user can remove
+- Dynamically generates categories/mechanics for each user
+- Did loading screens for website
+- Populated sales tab
+- Did a quiz user can complete when they sign up 
+- Added recommended for you carousel
+
+BACKEND
+- Added some funcs in user browsing to help with tag collection 

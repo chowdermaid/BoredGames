@@ -1,0 +1,239 @@
+.QuizTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logoQuiz {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 0.5rem;
+}
+
+#boredGamesLogo {
+  height: 4rem;
+  width: 11rem;
+  margin-left: 0.5rem;
+}
+
+.QuestionQuiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#quizMainQuestion {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.Mui-disabled {
+  color: #485b73;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+// CSS for 2 option quizzes
+.TwoOptionsQuiz {
+  display: flex;
+}
+
+.TwoOptionsQuiz h2 span {
+  color: white;
+  text-decoration: none;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+}
+
+.TwoOptionsQuiz span {
+  border-radius: 25px;
+}
+
+.TwoOptionsImg1 h2 {
+  position: absolute;
+  top: 430px;
+  left: 150px;
+}
+
+.TwoOptionsImg1 {
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+.TwoOptionsImg1 img {
+  transition: transform 0.5s ease;
+}
+
+.TwoOptionsImg1:hover img {
+  transform: scale(1.5);
+}
+
+.TwoOptionsImg2 h2 {
+  position: absolute;
+  top: 430px;
+  right: 150px;
+}
+
+.TwoOptionsImg2 {
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+.TwoOptionsImg2 img {
+  transition: transform 0.5s ease;
+}
+
+.TwoOptionsImg2:hover img {
+  transform: scale(1.5);
+}
+
+// CSS for 4 option quizzes
+.FourOptionsQuiz {
+  display: flex;
+}
+
+.FourOptionsQuiz h2 span {
+  color: white;
+  text-decoration: none;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+}
+
+.FourOptionsQuiz span {
+  border-radius: 25px;
+}
+
+.FourOptionsImg1 h2 {
+  position: absolute;
+  top: 300px;
+  left: 190px;
+}
+
+.FourOptionsImg1 {
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+.FourOptionsImg1 img {
+  transition: transform 0.5s ease;
+}
+
+.FourOptionsImg1:hover img {
+  transform: scale(1.5);
+}
+
+.FourOptionsImg2 h2 {
+  position: absolute;
+  top: 550px;
+  left: 190px;
+}
+
+.FourOptionsImg2 {
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+.FourOptionsImg2 img {
+  transition: transform 0.5s ease;
+}
+
+.FourOptionsImg2:hover img {
+  transform: scale(1.5);
+}
+
+.FourOptionsImg3 h2 {
+  position: absolute;
+  top: 300px;
+  right: 180px;
+}
+
+.FourOptionsImg3 {
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+.FourOptionsImg3 img {
+  transition: transform 0.5s ease;
+}
+
+.FourOptionsImg3:hover img {
+  transform: scale(1.5);
+}
+
+.FourOptionsImg4 h2 {
+  position: absolute;
+  top: 550px;
+  right: 190px;
+}
+
+.FourOptionsImg4 {
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+.FourOptionsImg4 img {
+  transition: transform 0.5s ease;
+}
+
+.FourOptionsImg4:hover img {
+  transform: scale(1.5);
+}
+
+#imgQuiz {
+  flex: 1;
+  height: 25rem;
+  width: 25rem;
+  object-fit: scale-down;
+}
+
+#imgQuiz2 {
+  flex: 1;
+  height: 14rem;
+  width: 25rem;
+  object-fit: scale-down;
+}
+
+#simulationH2 {
+  left: 170px;
+}
+
+#cooperativeH2 {
+  left: 170px;
+}
+
+#shortH2 {
+  left: 180px;
+}
+
+#longH2 {
+  right: 180px;
+}
+
+.quizProductCard {
+  width: 16rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+}
+
+#quizProductImg {
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}

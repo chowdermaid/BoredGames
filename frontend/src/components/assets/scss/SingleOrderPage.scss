@@ -1,0 +1,32 @@
+.singleOrderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: center;
+  max-width: 40%;
+  margin: 3rem auto;
+}
+
+.orderProductCard {
+  display: flex;
+  width: 10rem;
+  height: 200px;
+  text-align: right;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid silver;
+  margin-bottom: 5px;
+  padding: 0px 20px;
+}
+
+#orderProductImg {
+  width: 100%;
+}
+
+.orderProductsContainer {
+  margin: 1rem;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}

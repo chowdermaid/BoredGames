@@ -1,0 +1,31 @@
+.icon {
+  height: 2rem;
+}
+
+.cartProductPopupCard {
+  display: flex;
+}
+
+#cartProductPopupImg {
+  height: 3rem;
+  display: flex;
+}
+
+#cartProductPopupTxt {
+  height: 3rem;
+  display: flex;
+}
+
+#PopupButtonCart {
+  justify-content: center;
+  text-align: center;
+}
+
+.cartPopupQuantity {
+  display: flex;
+  margin-left: auto;
+}
+
+#cartPopupTotalCost {
+  margin-left: 9rem;
+}

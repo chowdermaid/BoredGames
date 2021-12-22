@@ -1,0 +1,102 @@
+.cartMainContainer {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartNavigation {
+  display: flex;
+  align-items: baseline;
+}
+
+.cartContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartProductCard {
+  display: flex;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border: 1px solid silver;
+  margin-bottom: 20px;
+}
+
+#cartProductName {
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+}
+
+#cartProductImg {
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+#cartProductTxt {
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cartQuantity {
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+}
+
+.cartQuantity h2 {
+  margin-top: 40px;
+}
+
+.customerDetailsDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#formCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customerShipping {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.customerCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.checkoutContainer {
+  display: flex;
+}
+
+.checkoutPay {
+  display: flex;
+  flex-direction: column;
+  margin-left: 14rem;
+}
+
+.cartProductPopupCard {
+  margin: 1rem;
+  right: 50px;
+}

@@ -1,0 +1,62 @@
+Week1
+- Meet up with team
+- Setup Jira and communication platform together
+- Discuss timetable for everyone
+- Brainstorm ideas
+- Assigned roles
+
+Week2
+- Working on frontend, using Figma
+- Contribute discuss on theme for recommender
+- There were multiple changes for theme
+- Work on proposal together
+
+Week3
+- Completed storyboards
+- Designing the frontend with Kath
+- Final editing for proposal
+
+Week4
+- Starting development with project
+- Assigned with sending an authentication email
+- Completed sending an email to user
+- Created a dummy "official" email for Bored Games
+
+Week5
+- Completed a sorting algorithm for viewing products
+- Discuss with team on coding direction
+- Reallocat tasks and priorities
+- Completed sending a forget password email
+- Completed resetting password for user, but there's a minor problem with duplicating data in MongoDB
+
+Week6
+- Fixed some bugs for resetting password
+- Clean up branches for better git management
+- Working on search feature
+- Search feature works but an instance behind every search
+
+Week7
+- Sending email when order is placed
+- Changed the status updates to buttons instead of textbox
+- Update code to change status via button
+
+Week8
+- Linked the status changes to send email
+- Email sent to user to update on order status
+- Gifting email sent to both user and recipient
+- Working on coupons and sales
+
+Week9
+- Signup quiz edit and feedback
+- User email transactions refactored code
+- Change the frontend design for gifting feature
+- Discount feature edited
+- Discount emails sent to users
+- Fixed gifting bug
+
+Week10
+- Frontend clean up
+- Emails for coupons
+- Change how product status is read
+- Look for bugs and clean up code
+- QA code

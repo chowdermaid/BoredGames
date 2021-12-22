@@ -1,0 +1,80 @@
+- What was planned for the period since the last work diary entry
+- What was finished
+- What were the main technical and non-technical obstacles and how they were
+overcome (or what was tried and did not work)
+- What was not finished, why this happened, how this affects the overall project
+progress and what adjustments (if any) are needed so the success of the project is not
+endangered
+- What is planned for the next period (e.g., next week)
+
+
+Week 1
+  - Created Jira Board. Chose the ecommerce topic. Discussed with team our strengths, weaknesses and what we can contribute to the team.
+  - Given I had abit of jira experience from past work experience, I set up the jira. We discussed different novelty functionalities for the ecommerce website.
+  - Settled on Gifting and a Gacha roll after purchasing. (To get customers to keep coming back).
+  - We delegated the user stories to the team and finished them all by next week
+  - I also modified some of the priorities and added user story points where necessary.
+Week 2
+  - We planned to finish 90% of the proposal by next tutorial. After the tutorial I created the storyboard for login and the home screen.
+  - We then found out that the Rachid the lecturer rejected our Harry Potter custom wand idea on Thursday. 
+  - This set our team back and the existing work I did with the Harry Potter Scheme.
+  - Dom was very helpful in clarifying what was necessary as a theme.
+  - We couldn't come up with a idea that we all agreed on until Sunday.
+  - We decided to then pick a board games ecommerce website (and called it Bored Games cos its punny).
+  - All of sunday I spent time rereating the colour scheme/logo and created the storyboard for user browsing, login, payment screens, secret santa.
+  - Cleaned up the tickets.
+Week 3
+  - During the tutorial, we also asked Dom on how to present the storyboards in the proposal. I separated, the my selected story boards into separate functionalities.
+  - We managed to complete I'd say 85% of the proposal. All that was left was finalising the proposal (editing) and system architecture.
+  - On Sunday we finalised everything, submitted the proposal and even added an extra functionality (My Board Game Collections)
+  - Tried to set up the github and created a self-contained react project
+Week 4
+  - Started frontend project. simple react app.
+  - Created a NavBar. had merging issues with Darwin's login system but we were able to resolve it.
+  - Changes all file names from js to jsx
+  - Working on frontend - user browsing for all items. Ticket BORED-79
+  - Completed Ticket BORED-79. was able to also add a delete button for admin. A conditional display has been done for user browsing.
+  - Users only see items
+  - Admins will see items + delete button.
+Week 5
+  - Working on adding a product. BORED-22.
+  - Admins on "shop" page will have a Admin product component part where they can click buttons at the top (add new product) and see inventory
+  - We had our presentation and retro. I think it went very well.
+  - Finished add product page. Displays the image when searching and submits a form. 
+  - @Darwin helps with refactoring the fetch API function calls to a single page so that I could call it in my page.
+  - Completed ticket BORED-60-view-user-single-product
+  - Users can now view a single product with price, description, other info etc.
+  - Admins can now view a single product with price, description, delete product (return to shop page), or add product.
+  - Placeholder set for updating product.
+Week 6
+  - Worked on refactoring user browsing into separate components in ticket STYLING-fix-user-browsing
+  - Had conflict in frontend because we didn't decide if we were going to use props/components or classes in react
+  - Led to us overwriting each others code. Resolved by settling on using only props and components.
+  - Added styling to user browsing components
+  - Removed bugs and unnecessary components, cleaned up code
+Week 7
+  - Tried to fix the issue where when you refresh, token is taken from localstorage and still logged in.
+  - From meetings discussed this is not a priority
+  - Tried to create a UpdateAPI MODAL but this was unsuccessful due to the problem with react hooks and classes
+  - Resulted in creating separate endpoint
+  - Completed Ticket - Update Product Admin API with interface
+  - Added Styling to NavBar underline on hover animation
+Week 8
+  - Had our DEMO B, Hannah was amazing. Had retro B, discussed priorities
+  - Added a footer, fixed navbar spacing problem, re-aligned navbar, added FAQ screen
+  - Modified styling for navbar, for My Collection, div alignmernt for each page 
+  - fixed spacing problem for browser items
+  - Added instructions for documentation in running the project
+  - changed bored bundles to sale
+Week 9
+  - Added discounts applied to the actual price for each single item page
+    - Strike through added to original price, discount price shown
+  - Redesigned the cart page
+  - Aligned all columns for ordering tables admin/user + Single Order Pages for admin/Users
+  - Style payment screen text boxes
+  - Styling for each product cards
+  - adding images out of stock items grey scale
+Week 10
+  - bug fixing
+  - fixed description preview
+  - updated images to not be squished in firefox
