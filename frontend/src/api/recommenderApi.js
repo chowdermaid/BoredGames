@@ -1,6 +1,6 @@
 export const curPopularApi = async () => {
   const response = await fetch(
-    'http://localhost:9099/recommender/currently_popular',
+    'https://bored-games-3900.herokuapp.com/recommender/currently_popular',
     {
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export const curPopularApi = async () => {
 
 export const relatedProductsApi = async ({ handle }) => {
   const response = await fetch(
-    `http://localhost:9099/recommender/you_might_also_like/${handle}`,
+    `https://bored-games-3900.herokuapp.com/recommender/you_might_also_like/${handle}`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export const relatedProductsApi = async ({ handle }) => {
 
 export const recommendedForUserProductsApi = async ({ token }) => {
   const response = await fetch(
-    `http://localhost:9099/recommender/recommended_for_you`,
+    `https://bored-games-3900.herokuapp.com/recommender/recommended_for_you`,
     {
       headers: {
         'Content-Type': 'application/json',
