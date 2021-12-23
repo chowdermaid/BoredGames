@@ -1,1 +1,1 @@
-web: gunicorn backend.src.routes:app 
+web: gunicorn --pythonpath backend.src.routes:app 
