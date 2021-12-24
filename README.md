@@ -1,5 +1,4 @@
-# capstone-project-3900-w11a-notliketheothergroups
-capstone-project-3900-w11a-notliketheothergroups created by GitHub Classroom
+# Bored Games - An E-commerce website done as a project in COMP3900
 
 ## Running for the first time in Windows
 
