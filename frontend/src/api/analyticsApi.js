@@ -1,10 +1,13 @@
 export const getAnalyticsApi = async () => {
-  const response = await fetch(`http://localhost:9099/analytics/analytics`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/analytics/analytics`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   const data = await response.json();
 
@@ -16,7 +19,7 @@ export const getAnalyticsApi = async () => {
 
 export const getOOSApi = async () => {
   const response = await fetch(
-    `http://localhost:9099/analytics/out_of_stock_items`,
+    `https://bored-games-3900.herokuapp.com/analytics/out_of_stock_items`,
     {
       headers: {
         'Content-Type': 'application/json',

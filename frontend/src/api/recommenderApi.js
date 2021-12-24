@@ -58,7 +58,7 @@ export const recommendedForUserProductsApi = async ({ token }) => {
 
 export const getRecommendedGamesQuiz = async ({ token }) => {
   const response = await fetch(
-    `http://localhost:9099/recommender/completed_quiz`,
+    `https://bored-games-3900.herokuapp.com/recommender/completed_quiz`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export const getRecommendedGamesQuiz = async ({ token }) => {
 
 export const completeQuiz = async ({ token, Q1, Q2, Q3, Q4, Q5 }) => {
   const response = await fetch(
-    `http://localhost:9099/recommender/completed_quiz`,
+    `https://bored-games-3900.herokuapp.com/recommender/completed_quiz`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export const completeQuiz = async ({ token, Q1, Q2, Q3, Q4, Q5 }) => {
 
 export const getPersonalCategoriesListApi = async ({ token }) => {
   const response = await fetch(
-    `http://localhost:9099/recommender/categories_for_you`,
+    `https://bored-games-3900.herokuapp.com/recommender/categories_for_you`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ export const getPersonalCategoriesListApi = async ({ token }) => {
 
 export const getPersonalMechanicsListApi = async ({ token }) => {
   const response = await fetch(
-    `http://localhost:9099/recommender/mechanics_for_you`,
+    `https://bored-games-3900.herokuapp.com/recommender/mechanics_for_you`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ export const getPersonalMechanicsListApi = async ({ token }) => {
 
 export const getPopularCategoriesListApi = async () => {
   const response = await fetch(
-    `http://localhost:9099/recommender/top_categories`,
+    `https://bored-games-3900.herokuapp.com/recommender/top_categories`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ export const getPopularCategoriesListApi = async () => {
 
 export const getPopularMechanicsListApi = async () => {
   const response = await fetch(
-    `http://localhost:9099/recommender/top_mechanics`,
+    `https://bored-games-3900.herokuapp.com/recommender/top_mechanics`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -182,12 +182,15 @@ export const getPopularMechanicsListApi = async () => {
 };
 
 export const getSaleItemsApi = async () => {
-  const response = await fetch(`http://localhost:9099/recommender/sale_items`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/recommender/sale_items`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   const data = await response.json();
 

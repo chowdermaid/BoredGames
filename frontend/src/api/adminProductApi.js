@@ -1,6 +1,6 @@
 export const searchProductApi = async ({ name }) => {
   const response = await fetch(
-    `http://localhost:9099/admin/add_product?name=${name}`,
+    `https://bored-games-3900.herokuapp.com/admin/add_product?name=${name}`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -19,17 +19,20 @@ export const searchProductApi = async ({ name }) => {
 };
 
 export const addProductApi = async ({ quantity, discount, price }) => {
-  const response = await fetch('http://localhost:9099/admin/add_product', {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    'https://bored-games-3900.herokuapp.com/admin/add_product',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        quantity,
+        discount,
+        price,
+      }),
     },
-    method: 'POST',
-    body: JSON.stringify({
-      quantity,
-      discount,
-      price,
-    }),
-  });
+  );
 
   const data = await response.json();
 
@@ -40,12 +43,15 @@ export const addProductApi = async ({ quantity, discount, price }) => {
 };
 
 export const listProductsApi = async () => {
-  const response = await fetch('http://localhost:9099/admin/list_products', {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    'https://bored-games-3900.herokuapp.com/admin/list_products',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   const data = await response.json();
 
@@ -63,19 +69,22 @@ export const editProductApi = async ({
   price,
   id,
 }) => {
-  const response = await fetch(`http://localhost:9099/admin/product/${id}`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/admin/product/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'PATCH',
+      body: JSON.stringify({
+        description_preview,
+        description,
+        quantity,
+        discount,
+        price,
+      }),
     },
-    method: 'PATCH',
-    body: JSON.stringify({
-      description_preview,
-      description,
-      quantity,
-      discount,
-      price,
-    }),
-  });
+  );
 
   const data = await response.json();
   if (!response.ok) {
@@ -85,12 +94,15 @@ export const editProductApi = async ({
 };
 
 export const getProductApi = async ({ id }) => {
-  const response = await fetch(`http://localhost:9099/admin/product/${id}`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/admin/product/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   const data = await response.json();
 
@@ -101,12 +113,15 @@ export const getProductApi = async ({ id }) => {
 };
 
 export const deleteProductApi = async ({ id }) => {
-  const response = await fetch(`http://localhost:9099/admin/product/${id}`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/admin/product/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'DELETE',
     },
-    method: 'DELETE',
-  });
+  );
 
   const data = await response.json();
 
@@ -117,12 +132,15 @@ export const deleteProductApi = async ({ id }) => {
 };
 
 export const getAllOrdersAdmin = async () => {
-  const response = await fetch(`http://localhost:9099/admin/orders`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/admin/orders`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   const data = await response.json();
 
@@ -134,7 +152,7 @@ export const getAllOrdersAdmin = async () => {
 
 export const getUserOrderAdmin = async ({ order_number }) => {
   const response = await fetch(
-    `http://localhost:9099/admin/order/${order_number}`,
+    `https://bored-games-3900.herokuapp.com/admin/order/${order_number}`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -153,7 +171,7 @@ export const getUserOrderAdmin = async ({ order_number }) => {
 
 export const patchUserOrderAdmin = async ({ order_number, status }) => {
   const response = await fetch(
-    `http://localhost:9099/admin/order/${order_number}`,
+    `https://bored-games-3900.herokuapp.com/admin/order/${order_number}`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -174,12 +192,15 @@ export const patchUserOrderAdmin = async ({ order_number, status }) => {
 };
 
 export const getCouponsApi = async () => {
-  const response = await fetch(`http://localhost:9099/admin/coupon`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/admin/coupon`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   const data = await response.json();
 
@@ -190,16 +211,19 @@ export const getCouponsApi = async () => {
 };
 
 export const addCouponApi = async ({ code, voucher }) => {
-  const response = await fetch('http://localhost:9099/admin/coupon', {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    'https://bored-games-3900.herokuapp.com/admin/coupon',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        code,
+        voucher,
+      }),
     },
-    method: 'POST',
-    body: JSON.stringify({
-      code,
-      voucher,
-    }),
-  });
+  );
   const data = await response.json();
 
   if (!response.ok) {
@@ -209,15 +233,18 @@ export const addCouponApi = async ({ code, voucher }) => {
 };
 
 export const deleteCouponApi = async ({ code }) => {
-  const response = await fetch(`http://localhost:9099/admin/coupon`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `https://bored-games-3900.herokuapp.com/admin/coupon`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'DELETE',
+      body: JSON.stringify({
+        code,
+      }),
     },
-    method: 'DELETE',
-    body: JSON.stringify({
-      code,
-    }),
-  });
+  );
 
   const data = await response.json();
 
