@@ -7,8 +7,8 @@ from flask_restx import reqparse
 from flask_restx import Resource, Api
 
 # our imports
-from account import register, login, logout, account_details, forgot_password, reset_password
-from email_auth import update_status_email
+from .account import register, login, logout, account_details, forgot_password, reset_password
+from .email_auth import update_status_email
 import analytics
 import admin_orders
 import admin_product
