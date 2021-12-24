@@ -9,14 +9,14 @@ from flask_restx import Resource, Api
 # our imports
 from .account import register, login, logout, account_details, forgot_password, reset_password
 from .email_auth import update_status_email
-import analytics
-import admin_orders
-import admin_product
-import cart
-import my_collection
-import user_browsing
-import user_orders
-import recommender
+import .analytics
+import .admin_orders
+import .admin_product
+import .cart
+import .my_collection
+import .user_browsing
+import .user_orders
+import .recommender
 
 app = Flask(__name__)
 port_num = 5000
