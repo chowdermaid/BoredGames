@@ -5,7 +5,7 @@ manages accounts
 import bcrypt
 import re
 import uuid
-from email_auth import send_email, reset_password_email
+from .email_auth import send_email, reset_password_email
 
 def register(username, email, password, cpassword, users):
     """
