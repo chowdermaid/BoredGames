@@ -3,8 +3,8 @@ import random
 import string
 
 import cart
-from email_auth import place_order_email, gifting_email
-import my_collection
+from .email_auth import place_order_email, gifting_email
+from .my_collection import *
 
 def place_order(token, credit_card, shipping_info, gift_info, add_to_collection, 
                         users_collection, products_collection, transactions_collection):

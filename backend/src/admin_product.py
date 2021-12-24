@@ -8,8 +8,8 @@ import os
 import requests
 import re
 
-from email_auth import discount_email
-from helper_functions import category_id_to_name, mechanic_id_to_name
+from .email_auth import discount_email
+from .helper_functions import category_id_to_name, mechanic_id_to_name
 
 temp_file = 'temp_game.json'
 

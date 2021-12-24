@@ -9,14 +9,14 @@ from flask_restx import Resource, Api
 # our imports
 from .account import register, login, logout, account_details, forgot_password, reset_password
 from .email_auth import update_status_email
-import .analytics
-import .admin_orders
-import .admin_product
-import .cart
-import .my_collection
-import .user_browsing
-import .user_orders
-import .recommender
+from .analytics import *
+from .admin_orders import *
+from .admin_product import *
+from cart import *
+from my_collection import *
+from user_browsing import *
+from user_orders import *
+from recommender import *
 
 app = Flask(__name__)
 port_num = 5000
@@ -209,7 +209,7 @@ class AdminAddProduct(Resource):
         name = request.args['name']
 
         collection = mongo.db.products_collection
-        resp, code = admin_product.import_product(name, collection)
+        resp, code = import_product(name, collection)
         if code != 200:
             api.abort(code, resp)  
 
@@ -241,9 +241,9 @@ class AdminAddProduct(Resource):
         categories_collection = mongo.db.categories_collection   
         mechanics_collection = mongo.db.mechanics_collection   
 
-        game = admin_product.load_temp_game()
+        game = load_temp_game()
 
-        resp, code = admin_product.add_product(args, game, collection, categories_collection, mechanics_collection)
+        resp, code = add_product(args, game, collection, categories_collection, mechanics_collection)
         if code != 200:
             api.abort(code, resp)
 
@@ -261,7 +261,7 @@ class AdminListProducts(Resource):
     def get(self):     
         # Get current list of products
         collection = mongo.db.products_collection
-        products = admin_product.load_all_products(collection)
+        products = load_all_products(collection)
         return products, 200
 
 
@@ -277,7 +277,7 @@ class AdminProduct(Resource):
     def get(self, id):
         id = request.view_args['id']
         collection = mongo.db.products_collection
-        resp, code = admin_product.get_product(id, collection)
+        resp, code = get_product(id, collection)
         return resp, code
 
     @api.doc(
@@ -306,7 +306,7 @@ class AdminProduct(Resource):
         args['price'] = j['price']
 
         collection = mongo.db.products_collection
-        resp, code = admin_product.edit_product(args, id, collection)
+        resp, code = edit_product(args, id, collection)
         return resp, code
 
     @api.doc(
@@ -320,7 +320,7 @@ class AdminProduct(Resource):
         id = request.view_args['id']
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = admin_product.delete_product(id, products_collection, users_collection)
+        resp, code = delete_product(id, products_collection, users_collection)
         return resp, code
 
 @admin.route('/order/<string:order_number>')
@@ -334,7 +334,7 @@ class AdminOrder(Resource):
     )
     def get(self, order_number):
         transactions_collection = mongo.db.transactions_collection
-        resp, code = admin_orders.get_order(order_number, transactions_collection)
+        resp, code = get_order(order_number, transactions_collection)
         return resp, code
     @api.doc(
         description="PATCH specific transaction",
@@ -353,8 +353,8 @@ class AdminOrder(Resource):
         order_status = j['status']
         transactions_collection = mongo.db.transactions_collection
         users_collection = mongo.db.users_collection
-        resp, code = admin_orders.update_order_status(order_number, order_status, transactions_collection, users_collection)
-        order = admin_orders.get_order(order_number, transactions_collection)
+        resp, code = update_order_status(order_number, order_status, transactions_collection, users_collection)
+        order = get_order(order_number, transactions_collection)
         email = order[0]['user']
         update_status_email(order_status, email, order_number)
         return resp, code
@@ -369,7 +369,7 @@ class AdminOrders(Resource):
     )
     def get(self):
         transactions_collection = mongo.db.transactions_collection
-        resp, code = admin_orders.load_all_orders(transactions_collection)
+        resp, code = load_all_orders(transactions_collection)
         return resp, code
     
 
@@ -384,7 +384,7 @@ class AdminReset(Resource):
     )
     def delete(self):
         collection = mongo.db.products_collection
-        resp, code = admin_product.remove_all(collection)
+        resp, code = remove_all(collection)
         return resp, code
     
     @api.doc(
@@ -398,7 +398,7 @@ class AdminReset(Resource):
         collection = mongo.db.products_collection
         categories_collection = mongo.db.categories_collection
         mechanics_collection = mongo.db.mechanics_collection
-        resp, code = admin_product.populate(collection, categories_collection, mechanics_collection)
+        resp, code = populate(collection, categories_collection, mechanics_collection)
         return resp, code
 
 @admin.route('/coupon')
@@ -421,7 +421,7 @@ class Coupon(Resource):
         code = j['code']
         voucher = j['voucher']
         collection = mongo.db.coupon_collection
-        resp, code = admin_orders.add_coupon(code, voucher, collection)
+        resp, code = add_coupon(code, voucher, collection)
         return resp, code
     
     @api.doc(
@@ -432,7 +432,7 @@ class Coupon(Resource):
     )
     def get(self):
         collection = mongo.db.coupon_collection
-        resp = admin_orders.get_coupons(collection)
+        resp = get_coupons(collection)
         return resp
 
     @api.doc(
@@ -451,7 +451,7 @@ class Coupon(Resource):
         j = request.get_json(force=True)
         code = j['code']
         collection = mongo.db.coupon_collection
-        resp, code = admin_orders.delete_coupon(code, collection)
+        resp, code = delete_coupon(code, collection)
         return resp, code
 
 
@@ -471,7 +471,7 @@ class GetMyCollection(Resource):
         token = token.split(" ")[-1]
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = my_collection.load_all_products(token, products_collection, users_collection)
+        resp, code = load_all_products(token, products_collection, users_collection)
         return resp, code
     
 @user.route('/my_collection/<string:handle>')
@@ -493,7 +493,7 @@ class MyCollection(Resource):
         token = j['token']
         users_collection = mongo.db.users_collection
         products_collection = mongo.db.products_collection
-        resp, code = my_collection.add_product(token, handle, users_collection, products_collection)
+        resp, code = add_product(token, handle, users_collection, products_collection)
         return resp, code
     
     @api.doc(
@@ -514,7 +514,7 @@ class MyCollection(Resource):
         token = j['token']
         users_collection = mongo.db.users_collection
         products_collection = mongo.db.products_collection
-        resp, code = my_collection.delete_product(token, handle, users_collection, products_collection)
+        resp, code = delete_product(token, handle, users_collection, products_collection)
         return resp, code
 
 @user.route('/cart_list')
@@ -531,7 +531,7 @@ class GetCart(Resource):
         token = token.split(" ")[-1]
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = cart.load_all_products(token, products_collection, users_collection)
+        resp, code = load_all_products(token, products_collection, users_collection)
         return resp, code
     
 @user.route('/cart/<string:handle>')
@@ -555,7 +555,7 @@ class Cart(Resource):
         quantity = j['quantity']
         users_collection = mongo.db.users_collection
         products_collection = mongo.db.products_collection
-        resp, code = cart.add_product(token, quantity, handle, users_collection, products_collection)
+        resp, code = add_product(token, quantity, handle, users_collection, products_collection)
         return resp, code
     
     @api.doc(
@@ -577,7 +577,7 @@ class Cart(Resource):
         quantity = j['quantity']
         users_collection = mongo.db.users_collection
         products_collection = mongo.db.products_collection
-        resp, code = cart.edit_quantity(token, quantity, handle, users_collection, products_collection)
+        resp, code = edit_quantity(token, quantity, handle, users_collection, products_collection)
         return resp, code
     
     @api.doc(
@@ -598,7 +598,7 @@ class Cart(Resource):
         token = j['token']
         users_collection = mongo.db.users_collection
         products_collection = mongo.db.products_collection
-        resp, code = cart.delete_product(token, handle, users_collection, products_collection)
+        resp, code = delete_product(token, handle, users_collection, products_collection)
         return resp, code
 
 @user.route('/filter_search')
@@ -650,7 +650,7 @@ class FilterSearch(Resource):
 
         products_collection = mongo.db.products_collection
 
-        resp, code = user_browsing.filter_all_products(search, min_price, max_price, min_year, max_year, min_players, 
+        resp, code = filter_all_products(search, min_price, max_price, min_year, max_year, min_players, 
         max_players, min_playtime, max_playtime, 
         min_age, mechanics, categories, 
         curve_start, curve_end, depth_start, depth_end, products_collection)
@@ -704,7 +704,7 @@ class UserSelectedTags(Resource):
         depth_start = j['depth_start']
         depth_end = j['depth_end']
 
-        resp, code = user_browsing.collect_user_selected_tags(search, min_price, max_price, min_year, max_year, min_players, 
+        resp, code = collect_user_selected_tags(search, min_price, max_price, min_year, max_year, min_players, 
         max_players, min_playtime, max_playtime, 
         min_age, mechanics, categories, 
         curve_start, curve_end, depth_start, depth_end)
@@ -733,7 +733,7 @@ class CartApplyCoupon(Resource):
         coupon_code = j['coupon_code']
         users_collection = mongo.db.users_collection
         coupon_collection = mongo.db.coupon_collection
-        resp, code = cart.apply_coupon(token, coupon_code, users_collection, coupon_collection)
+        resp, code = apply_coupon(token, coupon_code, users_collection, coupon_collection)
         return resp, code
 
 @user.route('/order_place')
@@ -798,7 +798,7 @@ class PlaceOrder(Resource):
         products_collection = mongo.db.products_collection
         transactions_collection = mongo.db.transactions_collection
         
-        resp, code = user_orders.place_order(token, credit_card, shipping_info, gift_info, add_to_collection, 
+        resp, code = place_order(token, credit_card, shipping_info, gift_info, add_to_collection, 
         users_collection, products_collection, transactions_collection)
         return resp, code
 
@@ -817,7 +817,7 @@ class Order(Resource):
         token = request.headers.get('Authorization')
         token = token.split(" ")[-1]
         users_collection = mongo.db.users_collection
-        resp, code = user_orders.get_order(token, order_number, users_collection)
+        resp, code = get_order(token, order_number, users_collection)
         return resp, code
 
 @user.route('/orders')
@@ -834,7 +834,7 @@ class Orders(Resource):
         token = request.headers.get('Authorization')
         token = token.split(" ")[-1]
         users_collection = mongo.db.users_collection
-        resp, code = user_orders.load_all_orders(token, users_collection)
+        resp, code = load_all_orders(token, users_collection)
         return resp, code
     
 recommend = api.namespace('recommender', description='All of the recommender functions')
@@ -848,7 +848,7 @@ class CurrentlyPopular(Resource):
     )
     def get(self):
         products_collection = mongo.db.products_collection
-        resp, code = recommender.currently_popular(products_collection)
+        resp, code = currently_popular(products_collection)
         return resp, code
 
 @recommend.route('/you_might_also_like/<string:handle>')
@@ -861,7 +861,7 @@ class CurrentlyPopular(Resource):
     )
     def get(self, handle):
         products_collection = mongo.db.products_collection
-        resp, code = recommender.content_based_recommender(handle, products_collection)
+        resp, code = content_based_recommender(handle, products_collection)
         return resp, code
 
 @recommend.route('/recommended_for_you')
@@ -879,7 +879,7 @@ class CurrentlyPopular(Resource):
         token = token.split(" ")[-1]
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = recommender.collab_and_content_recommender(token, products_collection, users_collection)
+        resp, code = collab_and_content_recommender(token, products_collection, users_collection)
         return resp, code
 
 @recommend.route('/completed_quiz')
@@ -914,7 +914,7 @@ class CurrentlyPopular(Resource):
             'q5': j['Q5']
         }
         users_collection = mongo.db.users_collection
-        resp, code = recommender.add_quiz_results(token, answers, users_collection)
+        resp, code = add_quiz_results(token, answers, users_collection)
         return resp, code
     
     @api.doc(
@@ -930,7 +930,7 @@ class CurrentlyPopular(Resource):
         token = token.split(" ")[-1]
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = recommender.get_quiz_results(token, products_collection, users_collection)
+        resp, code = get_quiz_results(token, products_collection, users_collection)
         return resp, code
 
 @recommend.route('/top_categories')
@@ -944,7 +944,7 @@ class TopCategories(Resource):
     def get(self):
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = recommender.top_categories(products_collection, users_collection)
+        resp, code = top_categories(products_collection, users_collection)
         return resp, code
 
 @recommend.route('/top_mechanics')
@@ -958,7 +958,7 @@ class TopMechanics(Resource):
     def get(self):
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = recommender.top_mechanics(products_collection, users_collection)
+        resp, code = top_mechanics(products_collection, users_collection)
         return resp, code
 
 @recommend.route('/categories_for_you')
@@ -976,7 +976,7 @@ class YourCategories(Resource):
         token = token.split(" ")[-1]
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = recommender.top_categories_user(token, products_collection, users_collection)
+        resp, code = top_categories_user(token, products_collection, users_collection)
         return resp, code
 
 @recommend.route('/mechanics_for_you')
@@ -994,7 +994,7 @@ class YourMechanics(Resource):
         token = token.split(" ")[-1]
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
-        resp, code = recommender.top_mechanics_user(token, products_collection, users_collection)
+        resp, code = top_mechanics_user(token, products_collection, users_collection)
         return resp, code
 
 @recommend.route('/sale_items')
@@ -1007,7 +1007,7 @@ class Sale(Resource):
     )
     def get(self):
         products_collection = mongo.db.products_collection
-        resp, code = recommender.sale_items(products_collection)
+        resp, code = sale_items(products_collection)
         return resp, code
 
 analytic = api.namespace('analytics', description='All of the analytics endpoints')
@@ -1022,7 +1022,7 @@ class OutOfStock(Resource):
     )
     def get(self):
         products_collection = mongo.db.products_collection
-        resp, code = analytics.out_of_stock_items(products_collection)
+        resp, code = out_of_stock_items(products_collection)
         return resp, code
 
 @analytic.route('/analytics')
@@ -1037,7 +1037,7 @@ class Analytics(Resource):
         products_collection = mongo.db.products_collection
         users_collection = mongo.db.users_collection
         trans_collection = mongo.db.transactions_collection
-        resp, code = analytics.analytics(products_collection, users_collection, trans_collection)
+        resp, code = analytics(products_collection, users_collection, trans_collection)
         return resp, code
 
 if __name__ == '__main__':

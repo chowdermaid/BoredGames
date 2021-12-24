@@ -1,7 +1,7 @@
 """
 manages orders for admin
 """
-from email_auth import coupon_email
+from .email_auth import coupon_email
 
 def add_coupon(code, voucher, collection):
     """
