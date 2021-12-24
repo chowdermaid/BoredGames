@@ -19,7 +19,7 @@ import user_orders
 import recommender
 
 app = Flask(__name__)
-port_num = 9099
+port_num = 5000
 
 app.config['MONGO_URI'] = 'mongodb+srv://user2:comp3900@cluster0.o9wlc.mongodb.net/COMP3900-NotLikeTheOtherGroups?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true'
 
@@ -1047,4 +1047,4 @@ if __name__ == '__main__':
 
     # run the application
     app.config['ERROR_404_HELP'] = False
-    app.run(debug=True)
+    app.run(debug=True, port=port_num)
