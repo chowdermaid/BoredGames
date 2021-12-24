@@ -12,11 +12,11 @@ from .email_auth import update_status_email
 from .analytics import *
 from .admin_orders import *
 from .admin_product import *
-from cart import *
-from my_collection import *
-from user_browsing import *
-from user_orders import *
-from recommender import *
+from .cart import *
+from .my_collection import *
+from .user_browsing import *
+from .user_orders import *
+from .recommender import *
 
 app = Flask(__name__)
 port_num = 5000
