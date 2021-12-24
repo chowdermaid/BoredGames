@@ -1047,4 +1047,4 @@ if __name__ == '__main__':
 
     # run the application
     app.config['ERROR_404_HELP'] = False
-    app.run(debug=True, port=port_num)
+    app.run(debug=True)
