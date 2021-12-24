@@ -2,7 +2,7 @@ import datetime
 import random
 import string
 
-import cart
+from .cart import *
 from .email_auth import place_order_email, gifting_email
 from .my_collection import *
 
@@ -30,7 +30,7 @@ def place_order(token, credit_card, shipping_info, gift_info, add_to_collection,
     if not user:
         return('Not a valid user', 400)
     
-    transaction, code = cart.load_all_products(token, products_collection, users_collection)
+    transaction, code = load_all_products(token, products_collection, users_collection)
     if code != 200:
         print('whoops')
     # Check if cart is empty
@@ -84,7 +84,7 @@ def place_order(token, credit_card, shipping_info, gift_info, add_to_collection,
             my_collection.add_product(token, product['handle'], users_collection, products_collection)
     
     # Empty cart
-    cart.empty_cart(token, users_collection, products_collection)
+    empty_cart(token, users_collection, products_collection)
 
     # Stringify for JSON purposes
     transaction['_id'] = str(transaction['_id'])
