@@ -1,6 +1,9 @@
 # Bored Games - An E-commerce website done as a project in COMP3900
 Made by: Kath-Lin Han, Hannah Charak, Darwin Chow, Alex Kim
-See demo here: https://bored-games-3900.web.app/
+
+# Demo Website
+https://bored-games-3900.web.app/
+
 ## Running for the first time in Windows
 
 #### Setting up a virtual environment in Windows
